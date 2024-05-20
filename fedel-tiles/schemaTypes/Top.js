@@ -9,8 +9,8 @@ export default {
             type: 'string' 
         },
         { 
-            name: 'images', 
-            title: 'Images',
+            name: 'image', 
+            title: 'Image',
             type: 'image'
         },
     ],
