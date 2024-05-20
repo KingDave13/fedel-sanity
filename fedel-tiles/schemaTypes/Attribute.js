@@ -9,6 +9,15 @@ export default {
             type: 'number' 
         },
         { 
+            name: 'isDiscounted', 
+            title: 'Is Discounted', 
+            type: 'boolean' 
+        },
+        { 
+            name: 'OriginalPrice', 
+            title: 'Original Price', 
+            type: 'number' },
+        { 
             name: 'variations', 
             title: 'Variations', 
             type: 'array', 
@@ -16,19 +25,9 @@ export default {
         },
         { 
             name: 'dimensions', 
-            title: 'Dimensions', type: 'object', 
-                fields: [
-                    { 
-                        name: 'width', 
-                        title: 'Width', 
-                        type: 'number' 
-                    },
-                    { 
-                        name: 'height', 
-                        title: 'Height', 
-                        type: 'number' 
-                    },
-        ]},
+            title: 'Dimensions', 
+            type: 'string', 
+        },
         { 
             name: 'manufacturer', 
             title: 'Manufacturer', 
