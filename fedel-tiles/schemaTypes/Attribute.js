@@ -48,5 +48,16 @@ export default {
             title: 'Material', 
             type: 'string' 
         },
+        {
+            name: 'styleAndPattern',
+            title: 'Style and Pattern',
+            type: 'string',
+        },
+        {
+            name: 'color',
+            title: 'Color',
+            type: 'array', 
+            of: [{ type: 'string' }],
+        },
     ],
 };
