@@ -29,5 +29,17 @@ export default {
             title: 'Category', 
             type: 'reference', to: { type: 'category' } 
         },
+        {
+            name: 'subcategories',
+            title: 'Subcategories',
+            type: 'array',
+            of: [{ type: 'subcategory' }],
+        },
+        {
+            name: 'attributes',
+            title: 'Attributes',
+            type: 'array',
+            of: [{ type: 'attribute' }],
+        },
     ],
 };

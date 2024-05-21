@@ -20,5 +20,11 @@ export default {
             type: 'array', 
             of: [{ type: 'reference', to: { type: 'attribute' } }] 
         },
+        {
+            name: 'product',
+            title: 'Product',
+            type: 'reference',
+            to: { type: 'product' },
+        },
     ],
 };
