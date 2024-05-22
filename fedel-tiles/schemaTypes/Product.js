@@ -25,16 +25,16 @@ export default {
             type: 'array', of: [{ type: 'image' }]
         },
         {
-            name: 'subcategory',
-            title: 'Subcategory',
-            type: 'reference',
-            to: { type: 'subcategory' },
-        },
-        {
             name: 'category',
             title: 'Category',
             type: 'reference',
             to: { type: 'category' },
+        },
+        {
+            name: 'subcategory',
+            title: 'Subcategory',
+            type: 'reference',
+            to: { type: 'subcategory' },
         },
         {
             name: 'attributes',
