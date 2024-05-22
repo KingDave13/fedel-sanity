@@ -16,7 +16,8 @@ export default {
         { 
             name: 'OriginalPrice', 
             title: 'Original Price', 
-            type: 'number' },
+            type: 'number' 
+        },
         { 
             name: 'variations', 
             title: 'Variations', 
