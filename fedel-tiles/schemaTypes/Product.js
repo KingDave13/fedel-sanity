@@ -29,17 +29,25 @@ export default {
             title: 'Category', 
             type: 'reference', to: { type: 'category' } 
         },
-        {
-            name: 'subcategories',
-            title: 'Subcategories',
-            type: 'array',
-            of: [{ type: 'subcategory' }],
+        { 
+            name: 'subcategories', 
+            title: 'Subcategories', 
+            type: 'array', 
+            of: [{ type: 'reference', to: { type: 'subcategory' } }] 
         },
-        {
-            name: 'attributes',
-            title: 'Attributes',
-            type: 'array',
-            of: [{ type: 'attribute' }],
+        { 
+            name: 'attributes', 
+            title: 'Attributes', 
+            type: 'array', 
+            of: [{ type: 'reference', to: { type: 'attribute' } }] 
         },
     ],
+    preprocess: (doc) => {
+        if (doc.subcategories) {
+          doc.subcategories = [...new Set(doc.subcategories)];
+        }
+        if (doc.attributes) {
+          doc.attributes = [...new Set(doc.attributes)];
+        }
+    },
 };

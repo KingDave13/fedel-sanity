@@ -59,12 +59,5 @@ export default {
             type: 'array', 
             of: [{ type: 'string' }],
         },
-        {
-            name: 'product',
-            title: 'Product',
-            type: 'reference',
-            to: { type: 'product' },
-        },
-      
     ],
 };
