@@ -24,30 +24,45 @@ export default {
             title: 'Images', 
             type: 'array', of: [{ type: 'image' }]
         },
-        { 
-            name: 'category', 
-            title: 'Category', 
-            type: 'reference', to: { type: 'category' } 
+        {
+            name: 'subcategory',
+            title: 'Subcategory',
+            type: 'reference',
+            to: { type: 'subcategory' },
         },
-        { 
-            name: 'subcategories', 
-            title: 'Subcategories', 
-            type: 'array', 
-            of: [{ type: 'reference', to: { type: 'subcategory' } }] 
+        {
+            name: 'category',
+            title: 'Category',
+            type: 'reference',
+            to: { type: 'category' },
         },
-        { 
-            name: 'attributes', 
-            title: 'Attributes', 
-            type: 'array', 
-            of: [{ type: 'reference', to: { type: 'attribute' } }] 
+        {
+            name: 'attributes',
+            title: 'Attributes',
+            type: 'array',
+            of: [{ type: 'reference', to: { type: 'attribute' } }],
         },
     ],
-    preprocess: (doc) => {
-        if (doc.subcategories) {
-          doc.subcategories = [...new Set(doc.subcategories)];
-        }
-        if (doc.attributes) {
-          doc.attributes = [...new Set(doc.attributes)];
+    preprocess: async (doc) => {
+        // Update the subcategories field in category documents
+        if (doc.subcategory) {
+            // Fetch the referenced subcategory document
+            const subcategory = await client.getDocument(doc.subcategory._ref);
+            if (subcategory) {
+                // Update the subcategories field in category documents
+                const categoryQuery = `*[_type == "category" && references($subcategoryId)]`;
+                const categoriesToUpdate = await client.fetch(categoryQuery, { subcategoryId: subcategory._id });
+
+                // Update each category document
+                categoriesToUpdate.forEach(async (category) => {
+                    const updatedCategory = {
+                        _id: category._id,
+                        _type: category._type,
+                        subcategories: [{ _type: 'reference', _ref: subcategory._id }],
+                    };
+                    await client.createOrReplace(updatedCategory);
+                });
+            }
         }
     },
 };

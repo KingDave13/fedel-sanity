@@ -14,11 +14,5 @@ export default {
             type: 'slug', 
             options: { source: 'name', maxLength: 96 } 
         },
-        { 
-            name: 'attributes', 
-            title: 'Attributes', 
-            type: 'array', 
-            of: [{ type: 'reference', to: { type: 'attribute' } }] 
-        },
     ],
 };

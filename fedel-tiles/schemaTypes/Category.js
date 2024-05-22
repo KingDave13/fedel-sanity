@@ -24,11 +24,5 @@ export default {
             title: 'Image', 
             type: 'image' 
         },
-        { 
-            name: 'subcategories', 
-            title: 'Subcategories', 
-            type: 'array', 
-            of: [{ type: 'reference', to: { type: 'subcategory' } }] 
-        },
     ],
 };
