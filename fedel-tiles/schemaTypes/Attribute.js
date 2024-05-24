@@ -36,7 +36,7 @@ export default {
         },
         { 
             name: 'type', 
-            title: 'Type', 
+            title: 'Types', 
             type: 'string' 
         },
         { 
