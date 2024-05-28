@@ -15,6 +15,11 @@ export default {
             options: { source: 'name', maxLength: 96 } 
         },
         { 
+            name: 'herotext', 
+            title: 'Hero Text', 
+            type: 'text' 
+        },
+        { 
             name: 'description', 
             title: 'Description', 
             type: 'text' 

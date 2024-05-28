@@ -6,7 +6,7 @@ export default {
         { 
             name: 'price', 
             title: 'Price', 
-            type: 'number' 
+            type: 'string' 
         },
         { 
             name: 'isDiscounted', 
@@ -16,7 +16,7 @@ export default {
         { 
             name: 'OriginalPrice', 
             title: 'Original Price', 
-            type: 'number' 
+            type: 'string' 
         },
         { 
             name: 'variations', 
